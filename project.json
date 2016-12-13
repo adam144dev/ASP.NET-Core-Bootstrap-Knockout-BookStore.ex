@@ -22,9 +22,9 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
     "knockoutjs": "3.4.0",
     "AutoMapper": "5.2.0",
-    "Microsoft.EntityFrameworkCore": "1.1.0",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-    "jQuery": "2.2.3"
+    "jQuery": "2.2.3",
+    "Microsoft.EntityFrameworkCore": "1.1.0"
   },
 
   "tools": {
