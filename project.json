@@ -24,7 +24,7 @@
     "AutoMapper": "5.2.0",
     "Microsoft.EntityFrameworkCore": "1.1.0",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-    "jQuery": "3.1.1"
+    "jQuery": "2.2.3"
   },
 
   "tools": {
