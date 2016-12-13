@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
 {
@@ -28,6 +27,12 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+
+            services.AddDbContext<BookStoreDbContext>(options =>
+                options.UseSqlServer(Configuration["Data:BookStore:ConnectionString"]));
+
+            //services.AddTransient<IProductRepository, EFProductRepository>();
+
             services.AddMvc();
         }
 
