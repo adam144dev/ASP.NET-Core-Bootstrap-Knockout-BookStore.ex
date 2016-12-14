@@ -1,11 +1,12 @@
 ﻿using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
+using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Http; // Needed for the SetString and GetString extension methods
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
 {
@@ -31,9 +32,13 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
             services.AddDbContext<BookStoreDbContext>(options =>
                 options.UseSqlServer(Configuration["Data:BookStore:ConnectionString"]));
 
-            //services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddTransient<IAuthorRepository, EFAuthorRepository>();
 
             services.AddMvc();
+
+            services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            // ~OR: services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +58,14 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
             }
 
             app.UseStaticFiles();
+
+            app.UseSession();   // IMPORTANT: This session call MUST go before UseMvc()
+            app.Use((httpContext, nextMiddleware) =>
+            {
+                // Still for MVC6? This appears to be a minor flaw in ASP.NET, because if this isn’t done, the SessionId appears to be reset at random points.
+                httpContext.Session.SetString("__MyAppSession", string.Empty);
+                return nextMiddleware();
+            });
 
             app.UseMvc(routes =>
             {
