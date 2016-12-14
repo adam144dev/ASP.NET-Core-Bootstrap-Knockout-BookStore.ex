@@ -1,32 +1,33 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - ASP.NET_Core_Bootstrap_Knockout_BookStore.ex</title>
+    @*@Scripts.Render("~/bundles/modernizr")*@
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
     </environment>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ASP.NET_Core_Bootstrap_Knockout_BookStore.ex</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Adam's BookStore</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,14 +35,24 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
+                <div class="navbar-right" id="cart-details">
+                    <a asp-area="" asp-controller="Carts" asp-action="Summary" class="navbar-brand">Carts</a>
+                    @*@Html.Action("Summary", "Carts")*@
+                </div>
             </div>
         </div>
     </div>
+
     <div class="container body-content">
-        @RenderBody()
-        <hr />
+        <div class="well well-lg col-lg-3">
+            <a asp-area="" asp-controller="Categories" asp-action="Menu" asp-route-id="@ViewBag.SelectedCategoryId != null ? @ViewBag.SelectedCategoryId : 0"></a>
+            @*@Html.Action("Menu", "Categories", new {selectedCategoryId = ViewBag.SelectedCategoryId != null ? ViewBag.SelectedCategoryId : 0})*@
+        </div>
+        <div class="col-lg-9">
+            @RenderBody()
+        </div>
         <footer>
-            <p>&copy; 2016 - ASP.NET_Core_Bootstrap_Knockout_BookStore.ex</p>
+            <p>&copy; 2016 - ASP.NET_Core_Bootstrap_Knockout_BookStore.ex by <a href="mailto: adam144dev@gmail.com">adam144dev@gmail.com</a></p>
         </footer>
     </div>
 
@@ -73,8 +84,8 @@
         <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"
                 asp-fallback-src="~/lib/knockout/dist/knockout.js">
         </script>
-                <script src="http://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
-            asp-fallback-src="~/lib/respond/dest/respond.min.js">
+        <script src="http://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
+                asp-fallback-src="~/lib/respond/dest/respond.min.js">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>

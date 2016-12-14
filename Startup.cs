@@ -1,5 +1,9 @@
 ﻿using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
+using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories;
+using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services;
+using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.ViewModels;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +37,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
                 options.UseSqlServer(Configuration["Data:BookStore:ConnectionString"]));
 
             services.AddTransient<IAuthorRepository, EFAuthorRepository>();
+            services.AddTransient<ICartRepository, EFCartRepository>();
+            services.AddTransient<ICartService, CartService>();
 
             services.AddMvc();
 
@@ -75,6 +81,15 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
             });
 
             SeedData.EnsurePopulated(app);
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>().ReverseMap();
+                cfg.CreateMap<Author, AuthorViewModel>().ReverseMap();
+                cfg.CreateMap<Book, BookViewModel>().ReverseMap();
+                cfg.CreateMap<Cart, CartViewModel>().ReverseMap();
+                cfg.CreateMap<CartItem, CartItemViewModel>().ReverseMap();
+            });
         }
     }
 }

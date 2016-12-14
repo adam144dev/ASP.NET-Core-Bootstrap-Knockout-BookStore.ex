@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models
+﻿namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models
 {
     public class CartItem
     {

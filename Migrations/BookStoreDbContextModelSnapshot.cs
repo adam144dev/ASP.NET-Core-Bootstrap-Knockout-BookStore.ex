@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
