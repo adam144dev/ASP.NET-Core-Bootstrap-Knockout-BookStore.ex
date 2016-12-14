@@ -60,6 +60,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }

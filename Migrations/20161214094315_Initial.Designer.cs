@@ -8,7 +8,7 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20161214085944_Initial")]
+    [Migration("20161214094315_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

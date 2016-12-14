@@ -11,10 +11,10 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models
         public string LastName { get; set; }
         public string Biography { get; set; }
 
+        public virtual ICollection<Book> Books { get; set; }
+
         [NotMapped]
         public string FullName => FirstName + ' ' + LastName;
-
-        public virtual ICollection<Book> Books { get; set; }
 
     }
 }
