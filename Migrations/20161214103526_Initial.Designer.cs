@@ -8,7 +8,7 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20161214094315_Initial")]
+    [Migration("20161214103526_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models.Book", b =>
@@ -64,7 +64,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models.Cart", b =>
@@ -77,7 +77,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models.CartItem", b =>
@@ -97,7 +97,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItem");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models.Category", b =>
@@ -109,7 +109,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models.Book", b =>
