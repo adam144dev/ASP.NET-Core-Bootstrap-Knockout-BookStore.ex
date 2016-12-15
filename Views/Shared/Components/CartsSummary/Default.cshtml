@@ -27,7 +27,7 @@
 <environment names="Staging,Production">
     <script src="~/js/ViewModels/CartSummaryViewModel.min.js"></script>
 </environment>
-    <script>
-        var viewModel = new CartSummaryViewModel(@Html.HtmlConvertToJson(Model));
-        ko.applyBindings(viewModel, document.getElementById("cart-details"));
-    </script>
+<script>
+    var viewModel = new CartSummaryViewModel(@Html.HtmlConvertToJson(Model));
+    ko.applyBindings(viewModel, document.getElementById("cart-details"));
+</script>

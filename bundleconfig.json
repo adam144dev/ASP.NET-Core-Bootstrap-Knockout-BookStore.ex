@@ -16,6 +16,12 @@
     }
   },
   {
+    "outputFileName": "wwwroot/js/knockout.custom.min.js",
+    "inputFiles": [
+      "wwwroot/js/knockout.custom.js"
+    ]
+  },
+  {
     "outputFileName": "wwwroot/js/ViewModels/CartSummaryViewModel.min.js",
     "inputFiles": [
       "wwwroot/js/ViewModels/CartSummaryViewModel.js"

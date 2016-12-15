@@ -7,7 +7,7 @@
             .extend({ subTotal: cartItem.book.salePrice });
     }
     self.cart.cartItems = ko.observableArray(self.cart.cartItems);
-    //self.cart.total = self.cart.cartItems.total();        // co to total ??
+    self.cart.total = self.cart.cartItems.total(); 
 
     self.showCart = function () {
         $("#cart").popover("toggle");
