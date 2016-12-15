@@ -2,9 +2,7 @@
 
 <a id="cart" asp-area="" asp-controller="Carts" asp-action="" data-bind="click: showCart">
     <span class="glyphicon glyphicon-shopping-cart"></span>
-    <span class="badge" data-bind="text: cart.cartItems().length">
-        @Model.CartItems.Count
-    </span>
+    <span class="badge" data-bind="text: cart.cartItems().length">@Model.CartItems.Count</span>
 </a>
 
 <div id="cart-summary" style="display: none">
@@ -19,11 +17,17 @@
         </ul>
         <p><strong>Total:</strong> $<span data-bind="text: cart.total"></span></p>
         <br />
-        <a asp-area="" asp-controller="Carts" asp-action="Index" class="btn btn-primary">
-            View cart details
-        </a>
+        <a asp-area="" asp-controller="Carts" asp-action="Index" class="btn btn-primary">View cart details</a>
     </div>
 </div>
+
+<environment names="Development">
+    <script src="~/js/ViewModels/CartSummaryViewModel.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="~/js/ViewModels/CartSummaryViewModel.min.js"></script>
+</environment>
 <script>
-    var cartSummaryData = @Html.HtmlConvertToJson(Model);
+    var viewModel = new CartSummaryViewModel(@Html.HtmlConvertToJson(Model));
+    ko.applyBindings(viewModel, document.getElementById("cart-details"));
 </script>

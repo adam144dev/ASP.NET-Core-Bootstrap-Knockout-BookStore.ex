@@ -16,6 +16,41 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
     </environment>
+    
+    // moved from body to head because of ASP.NET View Components used before included - other solution ?
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-ui/jquery-ui.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/knockout/dist/knockout.debug.js"></script>
+        <script src="~/lib/respond/dest/respond.src.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validate">
+        </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.js"
+                asp-fallback-src="">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"
+                asp-fallback-src="~/lib/knockout/dist/knockout.js">
+        </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
+                asp-fallback-src="~/lib/respond/dest/respond.min.js">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
 </head>
 
 <body>
@@ -54,40 +89,6 @@
             <p>&copy; 2016 - ASP.NET_Core_Bootstrap_Knockout_BookStore.ex by <a href="mailto: adam144dev@gmail.com">adam144dev@gmail.com</a></p>
         </footer>
     </div>
-
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-        <script src="~/lib/jquery-ui/jquery-ui.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/knockout/dist/knockout.debug.js"></script>
-        <script src="~/lib/respond/dest/respond.src.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"
-                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.validate">
-        </script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.js"
-                asp-fallback-src="">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"
-                asp-fallback-src="~/lib/knockout/dist/knockout.js">
-        </script>
-        <script src="http://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
-                asp-fallback-src="~/lib/respond/dest/respond.min.js">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
 
     @RenderSection("scripts", required: false)
 </body>
