@@ -36,8 +36,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 <div class="navbar-right" id="cart-details">
-                    <a asp-area="" asp-controller="Carts" asp-action="Summary" class="navbar-brand">Carts</a>
-                    @*@Html.Action("Summary", "Carts")*@
+                    @await Component.InvokeAsync("CartsSummary")
                 </div>
             </div>
         </div>
