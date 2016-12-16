@@ -15,7 +15,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 
         public IQueryable<TEntity> Entities => _dbContext.Set<TEntity>();
 
-        public IQueryable<TEntity> EntitiesInclude(string include) => Entities.Include(include);
+        public IQueryable<TEntity> EntitiesInclude(string path) => Entities.Include(path);
 
 
         public void Insert(TEntity entity)

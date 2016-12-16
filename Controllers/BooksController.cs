@@ -5,6 +5,7 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.ViewModels;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Linq;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 {
@@ -25,7 +26,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 
             ViewData["SelectedCategoryId"] = categoryId;
 
-            return View(AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books));
+            return View(AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books.ToList()));
         }
 
         public IActionResult Details(int id)
@@ -51,7 +52,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
             {
                 ViewData = new ViewDataDictionary<List<BookViewModel>>(
                    ViewData,
-                   AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books)
+                   AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books.ToList())
                )
             };
         }

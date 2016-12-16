@@ -14,25 +14,24 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
             _repository = repository;
         }
 
-        public List<Book> Get()
+        public IEnumerable<Book> Get()
         {
-            return _repository.Books.ToList();
+            return _repository.Books;
         }
 
-        public List<Book> GetByCategoryId(int categoryId)
+        public IEnumerable<Book> GetByCategoryId(int categoryId)
         {
             return _repository
                 .EntitiesInclude("Author")
                 .Where(b => b.CategoryId == categoryId).
-                OrderByDescending(b => b.Featured).
-                ToList();
+                OrderByDescending(b => b.Featured);
         }
 
-        public List<Book> GetFeatured()
+        public IEnumerable<Book> GetFeatured()
         {
-            return _repository.EntitiesInclude("Author")
-                .Where(b => b.Featured)
-                .ToList();
+            return _repository
+                .EntitiesInclude("Author")
+                .Where(b => b.Featured);
         }
 
         public Book GetById(int id)

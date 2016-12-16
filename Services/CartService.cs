@@ -17,8 +17,9 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 
         public Cart GetBySessionId(string sessionId)
         {
-            return 
-                _repository.EntitiesInclude("CartItems").SingleOrDefault(c => c.SessionId == sessionId) 
+            return _repository
+                    .EntitiesInclude("CartItems")
+                    .SingleOrDefault(c => c.SessionId == sessionId) 
                 ?? CreateCart(sessionId);
         }
 

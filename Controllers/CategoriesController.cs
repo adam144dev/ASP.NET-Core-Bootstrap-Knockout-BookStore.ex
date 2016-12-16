@@ -5,6 +5,7 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.ViewModels;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Linq;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 {
@@ -41,7 +42,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
             {
                 ViewData = new ViewDataDictionary<List<CategoryViewModel>>(
                    ViewData,
-                   AutoMapper.Mapper.Map<List<Category>, List<CategoryViewModel>>(categories)
+                   AutoMapper.Mapper.Map<List<Category>, List<CategoryViewModel>>(categories.ToList())
                )
             };
         }

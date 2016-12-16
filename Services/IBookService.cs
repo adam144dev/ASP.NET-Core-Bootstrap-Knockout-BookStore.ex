@@ -5,11 +5,11 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
     public interface IBookService
     {
-        List<Book> Get();
+        IEnumerable<Book> Get();
 
-        List<Book> GetByCategoryId(int categoryId);
+        IEnumerable<Book> GetByCategoryId(int categoryId);
 
-        List<Book> GetFeatured();
+        IEnumerable<Book> GetFeatured();
 
         Book GetById(int id);
     }
