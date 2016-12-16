@@ -37,7 +37,11 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
                 options.UseSqlServer(Configuration["Data:BookStore:ConnectionString"]));
 
             services.AddTransient<IAuthorRepository, EFAuthorRepository>();
+            services.AddTransient<IBookRepository, EFBookRepository>();
             services.AddTransient<ICartRepository, EFCartRepository>();
+            services.AddTransient<ICartService, CartService>();
+
+            services.AddTransient<IBookService, BookService>();
             services.AddTransient<ICartService, CartService>();
 
             services.AddMvc();
