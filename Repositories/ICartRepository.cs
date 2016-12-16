@@ -5,7 +5,6 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
     public interface ICartRepository
     {
-        //IEnumerable<Cart> Carts { get; }
         IQueryable<Cart> Carts { get; }
 
         void Insert(Cart cart);

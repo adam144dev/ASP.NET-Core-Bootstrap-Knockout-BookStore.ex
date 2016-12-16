@@ -5,7 +5,6 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
     public interface IAuthorRepository
     {
-        //IEnumerable<Author> Authors { get; }
         IQueryable<Author> Authors { get; }
 
         void Insert(Author author);
