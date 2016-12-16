@@ -3,9 +3,9 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
-    public interface ICartRepository : IBaseRepository<Cart>
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
-        IQueryable<Cart> Carts { get; }
+        IQueryable<Category> Categories { get; }
 
     }
 }

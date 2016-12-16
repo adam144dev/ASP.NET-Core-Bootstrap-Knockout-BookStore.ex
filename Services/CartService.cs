@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
@@ -20,9 +18,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
         public Cart GetBySessionId(string sessionId)
         {
             return 
-                _repository.Carts
-                    .Include(nameof(BookStoreDbContext.CartItems))  //"CartItems"
-                    .SingleOrDefault(c => c.SessionId == sessionId) 
+                _repository.EntitiesInclude("CartItems").SingleOrDefault(c => c.SessionId == sessionId) 
                 ?? CreateCart(sessionId);
         }
 

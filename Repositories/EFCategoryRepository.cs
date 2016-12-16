@@ -4,14 +4,14 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
-    public class EFCartRepository : EFBaseRepository<Cart>, ICartRepository
+    public class EFCategoryRepository : EFBaseRepository<Category>, ICategoryRepository
     {
-        public EFCartRepository(BookStoreDbContext dbContext)
+        public EFCategoryRepository(BookStoreDbContext dbContext)
             : base(dbContext)
         {
         }
 
-        public IQueryable<Cart> Carts => Entities;
+        public IQueryable<Category> Categories => Entities;
 
     }
 }

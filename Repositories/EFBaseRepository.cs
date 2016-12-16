@@ -3,37 +3,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
-    public class EFBaseRepository<TContext, TEntity> 
-        where TContext : DbContext 
+    public class EFBaseRepository<TEntity> : IBaseRepository<TEntity>
         where TEntity : class
     {
-        private readonly TContext _db;
+        protected readonly DbContext _dbContext;
 
-        public EFBaseRepository(TContext dbContext)
+        public EFBaseRepository(DbContext dbContext)
         {
-            _db = dbContext;
+            _dbContext = dbContext;
         }
 
-        private DbSet<TEntity> _entities => _db.Set<TEntity>();
-        public IQueryable<TEntity> Entities => _entities;
+        public IQueryable<TEntity> Entities => _dbContext.Set<TEntity>();
+
+        public IQueryable<TEntity> EntitiesInclude(string include) => Entities.Include(include);
+
 
         public void Insert(TEntity entity)
         {
-            _entities.Add(entity);
-            _db.SaveChanges();
+            _dbContext.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
-            _db.Entry<TEntity>(entity).State = EntityState.Modified;
-            _db.SaveChanges();
+            _dbContext.Entry<TEntity>(entity).State = EntityState.Modified;
+            _dbContext.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
-            _entities.Remove(entity);
-            _db.SaveChanges();
+            _dbContext.Remove(entity);
+            _dbContext.SaveChanges();
         }
-
     }
 }

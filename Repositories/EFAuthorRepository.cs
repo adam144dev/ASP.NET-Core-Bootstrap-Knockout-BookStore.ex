@@ -4,9 +4,9 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
-    public class EFAuthorRepository : EFBaseRepository<BookStoreDbContext, Author>, IAuthorRepository
+    public class EFAuthorRepository : EFBaseRepository<Author>, IAuthorRepository
     {
-        public EFAuthorRepository(BookStoreDbContext dbContext) 
+        public EFAuthorRepository(BookStoreDbContext dbContext)
             : base(dbContext)
         {
         }

@@ -3,11 +3,8 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
-    public interface IBookService
+    public interface ICategoryService
     {
-        List<Book> Get();
-
-        List<Book> GetByCategoryId(int categoryId);
+        List<Category> Get();
     }
 }
-
