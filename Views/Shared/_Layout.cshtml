@@ -81,14 +81,13 @@
 
     <div class="container body-content">
         <div class="well well-lg col-lg-3">
-            <a asp-area="" asp-controller="Categories" asp-action="Menu" asp-route-id="@ViewBag.SelectedCategoryId != null ? @ViewBag.SelectedCategoryId : 0"></a>
-            @*@Html.Action("Menu", "Categories", new {selectedCategoryId = ViewBag.SelectedCategoryId != null ? ViewBag.SelectedCategoryId : 0})*@
+            @await Component.InvokeAsync("CategoriesMenu", @ViewData["SelectedCategoryId"])
         </div>
         <div class="col-lg-9">
             @RenderBody()
         </div>
         <footer>
-            <p>&copy; 2016 - ASP.NET_Core_Bootstrap_Knockout_BookStore.ex by <a href="mailto: adam144dev@gmail.com">adam144dev@gmail.com</a></p>
+            <p>&copy; 2016 - ASP.NET Core with Bootstrap & Knockout.js - BookStore by <a href="mailto: adam144dev@gmail.com">adam144dev@gmail.com</a></p>
         </footer>
     </div>
 

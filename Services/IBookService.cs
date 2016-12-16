@@ -8,6 +8,10 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
         List<Book> Get();
 
         List<Book> GetByCategoryId(int categoryId);
+
+        List<Book> GetFeatured();
+
+        Book GetById(int id);
     }
 }
 

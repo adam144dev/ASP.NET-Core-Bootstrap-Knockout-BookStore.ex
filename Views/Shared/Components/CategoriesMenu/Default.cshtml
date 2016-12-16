@@ -1,0 +1,15 @@
+﻿@model List<CategoryViewModel>
+@{
+    var selectedCategoryId = (int)(ViewData["SelectedCategoryId"] ?? 0);
+}
+
+<div class="list-group">
+    <h4 class="list-group-item-heading">Categories</h4>
+    @foreach (var category in Model)
+    {
+        <a asp-area="" asp-controller="Books" asp-action="Index" asp-route-categoryId="@category.Id" 
+           class="list-group-item @if (selectedCategoryId == category.Id) { @Html.Raw("active") }">
+           @category.Name
+        </a>
+    }
+</div>

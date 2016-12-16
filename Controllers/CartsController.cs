@@ -18,7 +18,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         }
 
         // GET: Carts
-        public ActionResult Index()
+        public IActionResult Index()
         {
             var cart = _service.GetBySessionId(HttpContext.Session.Id);
 
@@ -27,7 +27,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 
 
         /// <summary>
-        // CartsSummary ViewController
+        //  ViewController
         /// </summary>
 
         [ViewComponentContext]

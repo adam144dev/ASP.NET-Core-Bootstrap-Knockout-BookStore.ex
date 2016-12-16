@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.ViewModels;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 {
-    //[ViewComponent(Name = "CategoriesMenu")]
+    [ViewComponent(Name = "BooksFeatured")]
     public class BooksController : Controller
     {
         private readonly IBookService _service;
@@ -17,36 +19,41 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         }
 
         // GET: Books
-        public ActionResult Index(int categoryId)
+        public IActionResult Index(int categoryId)
         {
             var books = _service.GetByCategoryId(categoryId);
 
-            ViewBag.SelectedCategoryId = categoryId;
+            ViewData["SelectedCategoryId"] = categoryId;
 
             return View(AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books));
         }
 
+        public IActionResult Details(int id)
+        {
+            var book = _service.GetById(id);
 
-        ///// <summary>
-        //// CartsSummary ViewController
-        ///// </summary>
+            return View(AutoMapper.Mapper.Map<Book, BookViewModel>(book));
+        }
 
-        //[ViewComponentContext]
-        //public ViewComponentContext ViewComponentContext { get; set; }
 
-        //public IViewComponentResult Invoke(int? selectedCategoryId)
-        //{
-        //    var categories = _service.Get();
-        //    ViewBag.SelectedCategoryId = selectedCategoryId;
+        /// <summary>
+        //  ViewController
+        /// </summary>
 
-        //    return new ViewViewComponentResult()
-        //    {
-        //        ViewData = new ViewDataDictionary<List<CategoryViewModel>>(
-        //           ViewData,
-        //           AutoMapper.Mapper.Map<List<Category>, List<CategoryViewModel>>(categories)
-        //       )
-        //    };
-        //}
+        [ViewComponentContext]
+        public ViewComponentContext ViewComponentContext { get; set; }
 
+        public IViewComponentResult Invoke()
+        {
+            var books = _service.GetFeatured();
+
+            return new ViewViewComponentResult()
+            {
+                ViewData = new ViewDataDictionary<List<BookViewModel>>(
+                   ViewData,
+                   AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books)
+               )
+            };
+        }
     }
 }

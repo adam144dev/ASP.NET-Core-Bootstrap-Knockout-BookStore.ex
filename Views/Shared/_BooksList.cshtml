@@ -1,0 +1,38 @@
+﻿@model List<BookViewModel>
+@{
+    const int maxPerRow = 3;
+    int counter = 0;
+}
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        counter++;
+        if (counter > maxPerRow)
+        {
+            counter = 0;
+            @Html.Raw("</div>")
+            @Html.Raw("<div class=\"row\">")
+        }
+
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Books" asp-action="Details" asp-route-id="@book.Id" class="thumbnail">
+                <img src="@book.ImageUrl" alt="@book.Title" title="@book.Title" />
+                <span class="label label-success">Save @book.SavePercentage %</span>
+            </a>
+
+            <h4>
+                <a asp-area="" asp-controller="Books" asp-action="Details" asp-route-id="@book.Id">
+                    @book.Title
+                </a>
+            </h4>
+
+            <p>@book.Author.FullName</p>
+            <p>Your Price: $@book.SalePrice</p>
+            <p>
+                List Price: <span style="text-decoration: line-through">$@book.ListPrice</span>
+            </p>
+        </div>
+    }
+</div>
+

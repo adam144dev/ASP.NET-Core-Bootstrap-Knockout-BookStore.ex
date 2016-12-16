@@ -24,8 +24,9 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         //    return View();
         //}
 
+
         /// <summary>
-        // CartsSummary ViewController
+        //  ViewController
         /// </summary>
 
         [ViewComponentContext]
@@ -34,7 +35,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         public IViewComponentResult Invoke(int? selectedCategoryId)
         {
             var categories = _service.Get();
-            ViewBag.SelectedCategoryId = selectedCategoryId;
+            ViewData["SelectedCategoryId"] = selectedCategoryId;
 
             return new ViewViewComponentResult()
             {

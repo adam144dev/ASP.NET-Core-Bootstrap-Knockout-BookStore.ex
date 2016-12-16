@@ -27,6 +27,25 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
                 OrderByDescending(b => b.Featured).
                 ToList();
         }
+
+        public List<Book> GetFeatured()
+        {
+            return _repository.EntitiesInclude("Author")
+                .Where(b => b.Featured)
+                .ToList();
+        }
+
+        public Book GetById(int id)
+        {
+            var book = _repository
+                .EntitiesInclude("Author")
+                .SingleOrDefault(b => b.Id == id);
+
+            //if (null == book) // ObjectNotFoundException not present in EntityFrameworkCore
+            //    throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to find book with id {id}");
+
+            return book;
+        }
     }
 }
 
