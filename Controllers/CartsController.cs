@@ -38,6 +38,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
             // (TBD?) A unique identifier for the current session. This is not the same as the session cookie 
             // since the cookie lifetime may not be the same as the session entry lifetime in the data store. 
             var cart = _service.GetBySessionId(ViewComponentContext.ViewContext.HttpContext.Session.Id);
+
             return new ViewViewComponentResult()
             {
                 ViewData = new ViewDataDictionary<CartViewModel>(

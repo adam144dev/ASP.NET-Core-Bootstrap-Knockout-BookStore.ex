@@ -6,6 +6,5 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
     public interface ICartRepository : IBaseRepository<Cart>
     {
         IQueryable<Cart> Carts { get; }
-
     }
 }

@@ -18,9 +18,9 @@
                 break;
             }
         }
+
         if (isNewItem) {
-            cartItem.quantity = ko.observable(cartItem.quantity)
-                .extend({ subTotal: cartItem.book.salePrice });
+            cartItem.quantity = ko.observable(cartItem.quantity).extend({ subTotal: cartItem.book.salePrice });
             self.cart.cartItems.push(cartItem);
         }
     };
@@ -50,10 +50,3 @@
         trigger: "manual"
     });
 };
-
-//if (cartSummaryData !== undefined) {
-//    var cartSummaryViewModel = new CartSummaryViewModel(cartSummaryData);
-//    ko.applyBindings(cartSummaryViewModel, document.getElementById("cart-details"));
-//} else {
-//    $(".body-content").prepend('<div class="alert alert-danger"><strong>Error!</strong> Could not find cart summary.</div>');
-//}

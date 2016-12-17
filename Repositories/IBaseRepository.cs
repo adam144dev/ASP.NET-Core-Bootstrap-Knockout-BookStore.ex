@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
@@ -7,7 +9,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
     {
         IQueryable<TEntity> Entities { get; }
 
-        IQueryable<TEntity> EntitiesInclude(string path);
+        IQueryable<TEntity> Include(params string[] paths);
 
 
         void Add(TEntity entity);
@@ -15,7 +17,5 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
         void Update(TEntity entity);
 
         void Delete(TEntity entity);
-
-     
     }
 }

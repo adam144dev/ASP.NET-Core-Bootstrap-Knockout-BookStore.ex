@@ -2,6 +2,7 @@
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories;
 using System.Linq;
+using Microsoft.CodeAnalysis;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
@@ -14,34 +15,33 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
             _repository = repository;
         }
 
-        public IEnumerable<Book> Get()
+        public IList<Book> Get()
         {
-            return _repository.Books;
+            return _repository.Books.ToList();
         }
 
-        public IEnumerable<Book> GetByCategoryId(int categoryId)
+        public IList<Book> GetByCategoryId(int categoryId)
         {
             return _repository
-                .EntitiesInclude("Author")
+                .Include("Author")
                 .Where(b => b.CategoryId == categoryId).
-                OrderByDescending(b => b.Featured);
+                OrderByDescending(b => b.Featured)
+                .ToList();
         }
 
-        public IEnumerable<Book> GetFeatured()
+        public IList<Book> GetFeatured()
         {
             return _repository
-                .EntitiesInclude("Author")
-                .Where(b => b.Featured);
+                .Include("Author")
+                .Where(b => b.Featured)
+                .ToList();
         }
 
         public Book GetById(int id)
         {
             var book = _repository
-                .EntitiesInclude("Author")
+                .Include("Author")
                 .SingleOrDefault(b => b.Id == id);
-
-            //if (null == book) // ObjectNotFoundException not present in EntityFrameworkCore
-            //    throw new System.Data.Entity.Core.ObjectNotFoundException($"Unable to find book with id {id}");
 
             return book;
         }

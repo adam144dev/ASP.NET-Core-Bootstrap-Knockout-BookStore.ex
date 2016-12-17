@@ -28,7 +28,6 @@
     <script src="~/js/ViewModels/CartSummaryViewModel.min.js"></script>
 </environment>
 <script>
-    @*var viewModel = new CartSummaryViewModel(@Html.HtmlConvertToJson(Model));*@
     var cartSummaryViewModel = new CartSummaryViewModel(@Html.HtmlConvertToJson(Model));
     ko.applyBindings(cartSummaryViewModel, document.getElementById("cart-details"));
 </script>

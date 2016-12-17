@@ -14,13 +14,15 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
             _repository = repository;
         }
 
-
         public Cart GetBySessionId(string sessionId)
         {
-            return _repository
-                    .EntitiesInclude("CartItems")
-                    .SingleOrDefault(c => c.SessionId == sessionId) 
-                ?? CreateCart(sessionId);
+            var carts = _repository.Include("CartItems", "CartItems.Book");
+            var cart = carts.SingleOrDefault(c => c.SessionId == sessionId);
+
+            if (cart == null)
+                cart = CreateCart(sessionId);
+
+            return cart;
         }
 
         private Cart CreateCart(string sessionId)

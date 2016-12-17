@@ -22,9 +22,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         // GET: Books
         public IActionResult Index(int categoryId)
         {
-            var books = _service.GetByCategoryId(categoryId);
-
             ViewData["SelectedCategoryId"] = categoryId;
+            var books = _service.GetByCategoryId(categoryId);
 
             return View(AutoMapper.Mapper.Map<List<Book>, List<BookViewModel>>(books.ToList()));
         }
@@ -32,6 +31,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
         public IActionResult Details(int id)
         {
             var book = _service.GetById(id);
+            if (book == null)
+                return NotFound();
 
             return View(AutoMapper.Mapper.Map<Book, BookViewModel>(book));
         }

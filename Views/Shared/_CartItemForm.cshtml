@@ -30,3 +30,9 @@
     </div>
 </template>
 
+<environment names="Development">
+    <script src="~/js/ViewModels/CartItemViewModel.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="~/js/ViewModels/CartItemViewModel.min.js"></script>
+</environment>

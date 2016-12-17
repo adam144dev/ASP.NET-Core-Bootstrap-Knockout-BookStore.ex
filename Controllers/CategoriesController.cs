@@ -35,8 +35,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers
 
         public IViewComponentResult Invoke(int? selectedCategoryId)
         {
-            var categories = _service.Get();
             ViewData["SelectedCategoryId"] = selectedCategoryId;
+            var categories = _service.Get();
 
             return new ViewViewComponentResult()
             {

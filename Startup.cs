@@ -71,11 +71,12 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
             }
 
             app.UseStaticFiles();
+            app.UseStatusCodePages();
 
             app.UseSession();   // IMPORTANT: This session call MUST go before UseMvc()
             app.Use((httpContext, nextMiddleware) =>
             {
-                // Still for MVC6? This appears to be a minor flaw in ASP.NET, because if this isn’t done, the SessionId appears to be reset at random points.
+                // This appears to be a minor flaw in ASP.NET, because if this isn’t done, the SessionId appears to be reset at random points.
                 httpContext.Session.SetString("__MyAppSession", string.Empty);
                 return nextMiddleware();
             });

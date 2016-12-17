@@ -14,9 +14,9 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
             _repository = repository;
         }
 
-        public IEnumerable<Category> Get()
+        public IList<Category> Get()
         {
-            return _repository.Categories;
+            return _repository.Categories.ToList();
         }
     }
 }

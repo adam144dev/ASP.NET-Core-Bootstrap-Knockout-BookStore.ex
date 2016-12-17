@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
@@ -15,7 +17,15 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 
         public IQueryable<TEntity> Entities => _dbContext.Set<TEntity>();
 
-        public IQueryable<TEntity> EntitiesInclude(string path) => Entities.Include(path);
+        public virtual IQueryable<TEntity> Include(params string[] paths)
+        {
+            IQueryable<TEntity> dbQuery = _dbContext.Set<TEntity>();
+
+            foreach (string path in paths)
+                dbQuery = dbQuery.Include(path);
+
+            return dbQuery;
+        }
 
 
         public void Add(TEntity entity)

@@ -5,6 +5,6 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> Get();
+        IList<Category> Get();
     }
 }

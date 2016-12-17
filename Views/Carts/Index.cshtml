@@ -55,11 +55,9 @@
 
 <environment names="Development">
     <script src="~/js/ViewModels/CartDetailViewModel.js"></script>
-    <script src="~/js/ViewModels/CartItemViewModel.js"></script>
 </environment>
 <environment names="Staging,Production">
     <script src="~/js/ViewModels/CartDetailViewModel.min.js"></script>
-    <script src="~/js/ViewModels/CartItemViewModel.min.js"></script>
 </environment>
 <script>
     var viewModel = new CartDetailViewModel(@Html.HtmlConvertToJson(Model));
