@@ -40,10 +40,12 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex
             services.AddTransient<IBookRepository, EFBookRepository>();
             services.AddTransient<ICategoryRepository, EFCategoryRepository>();
             services.AddTransient<ICartRepository, EFCartRepository>();
+            services.AddTransient<ICartItemRepository, EFCartItemRepository>();
 
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ICartService, CartService>();
+            services.AddTransient<ICartItemService, CartItemService>();
 
             services.AddMvc();
 

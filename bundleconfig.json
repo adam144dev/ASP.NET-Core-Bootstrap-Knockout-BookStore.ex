@@ -26,5 +26,23 @@
     "inputFiles": [
       "wwwroot/js/ViewModels/CartSummaryViewModel.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/ViewModels/BookDetailViewModel.min.js",
+    "inputFiles": [
+      "wwwroot/js/ViewModels/BookDetailViewModel.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/ViewModels/CartItemViewModel.min.js",
+    "inputFiles": [
+      "wwwroot/js/ViewModels/CartItemViewModel.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/ViewModels/CartDetailViewModel.min.js",
+    "inputFiles": [
+      "wwwroot/js/ViewModels/CartDetailViewModel.js"
+    ]
   }
 ]

@@ -31,7 +31,7 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
                     CartItems = new List<CartItem>()
                 };
 
-            _repository.Insert(cart);
+            _repository.Add(cart);
 
             return cart;
         }

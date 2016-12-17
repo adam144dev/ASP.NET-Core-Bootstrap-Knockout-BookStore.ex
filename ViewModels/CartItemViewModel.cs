@@ -16,9 +16,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.ViewModels
         [JsonProperty(PropertyName = "cartId")]
         public int CartId { get; set; }
 
-        // BookId is in BookViewModel (?), so not required
-        //[JsonProperty(PropertyName = "bookId")]
-        //public int BookId { get; set; }
+        [JsonProperty(PropertyName = "bookId")]
+        public int BookId { get; set; }
 
         [JsonProperty(PropertyName = "book")]
         public BookViewModel Book { get; set; }

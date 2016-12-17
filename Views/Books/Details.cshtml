@@ -20,3 +20,18 @@
         <upsert-cart-item params="cartItem: cartItem, showButton: true"></upsert-cart-item>
     </div>
 </div>
+
+@Html.Partial("_CartItemForm")
+
+<environment names="Development">
+    <script src="~/js/ViewModels/BookDetailViewModel.js"></script>
+    <script src="~/js/ViewModels/CartItemViewModel.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="~/js/ViewModels/BookDetailViewModel.min.js"></script>
+    <script src="~/js/ViewModels/CartItemViewModel.min.js"></script>
+</environment>
+<script>
+    var viewModel = new BookDetailViewModel(@Html.HtmlConvertToJson(Model));
+    ko.applyBindings(viewModel, document.getElementById("bookDetails"));
+</script>
