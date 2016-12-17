@@ -1,7 +1,6 @@
 ﻿using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {
@@ -31,5 +30,9 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 
             return entityCartItem;
         }
+
+        public void UpdateCartItem(CartItem cartItem) => _repository.Update(cartItem);
+
+        public void DeleteCartItem(CartItem cartItem) => _repository.Delete(cartItem);
     }
 }

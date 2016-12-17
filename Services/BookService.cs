@@ -2,7 +2,6 @@
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Models;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories;
 using System.Linq;
-using Microsoft.CodeAnalysis;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
 {

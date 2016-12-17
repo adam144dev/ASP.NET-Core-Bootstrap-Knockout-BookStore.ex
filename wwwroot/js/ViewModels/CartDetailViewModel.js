@@ -33,11 +33,8 @@ function CartDetailViewModel(model) {
 
     self.successfulDelete = function (data) {
         $('.body-content').prepend('<div class="alert alert-success"><strong>Success!</strong> The item has been deleted from your cart.</div>');
-
         self.cart.cartItems.remove(self.cartItemBeingChanged);
-
         cartSummaryViewModel.deleteCartItem(ko.toJS(self.cartItemBeingChanged));
-
         self.cartItemBeingChanged = null;
     };
 

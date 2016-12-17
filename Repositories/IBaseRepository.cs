@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Repositories
 {
