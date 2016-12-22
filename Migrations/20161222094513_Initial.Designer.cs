@@ -8,7 +8,7 @@ using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20161214103526_Initial")]
+    [Migration("20161222094513_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,7 +95,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("CartId");
+                    b.HasIndex("CartId", "BookId")
+                        .IsUnique();
 
                     b.ToTable("CartItem");
                 });

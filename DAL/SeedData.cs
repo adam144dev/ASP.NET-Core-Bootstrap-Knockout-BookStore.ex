@@ -16,23 +16,23 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL
 
             var categories = new Category[]
             {
-                new Category { Name = "Category1"},
-                new Category { Name = "Category2"},
-                new Category { Name = "Category3"},
-                new Category { Name = "Category4"}
+                new Category { Name = "Books"},
+                new Category { Name = "Super books"},
+                new Category { Name = "Hyper books"},
+                new Category { Name = "Zeta hyper books :-)"}
             };
 
             var authors = new Author[]
             {
                 new Author{
-                    FirstName = "FirstName1",
-                    LastName = "LastName1",
-                    Biography = "Biography1"
+                    FirstName = "John",
+                    LastName = "Smith",
+                    Biography = "..."
                 },
                 new Author{
-                    FirstName = "FirstName2",
-                    LastName = "LastName2",
-                    Biography = "Biography2"
+                    FirstName = "Jacek",
+                    LastName = "Nowak",
+                    Biography = "..."
                 },
             };
 
@@ -40,37 +40,37 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL
             {
                 new Book
                 {
-                    Title = "Title11",
+                    Title = "Superficial: More Adventures from the Andy Cohen Diaries",
                     Isbn = "Isbn11",
                     Synopsis = "Synopsis11",
                     Description = "Description11",
-                    ImageUrl = "ImageUrl11",
-                    ListPrice = 1.1M,
-                    SalePrice = 1.11M,
-                    Featured = false,
-                    Author = authors[0],
-                    Category = categories[0]
-                },
-                new Book
-                {
-                    Title = "Title12",
-                    Isbn = "Isbn12",
-                    Synopsis = "Synopsis12",
-                    Description = "Description12",
-                    ImageUrl = "ImageUrl12",
-                    ListPrice = 1.2M,
-                    SalePrice = 1.12M,
+                    ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/614J%2B7vrGyL._SX355_BO1,204,203,200_.jpg",
+                    ListPrice = 10M,
+                    SalePrice = 9M,
                     Featured = true,
                     Author = authors[0],
                     Category = categories[0]
                 },
                 new Book
                 {
-                    Title = "Title21",
+                    Title = "Last Girl Before Freeway: The Life, Loves, Losses, and Liberation of Joan Rivers",
+                    Isbn = "Isbn12",
+                    Synopsis = "Synopsis12",
+                    Description = "Description12",
+                    ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/51HSPG4%2BvqL._SX321_BO1,204,203,200_.jpg",
+                    ListPrice = 1.2M,
+                    SalePrice = 1.0M,
+                    Featured = false,
+                    Author = authors[0],
+                    Category = categories[0]
+                },
+                new Book
+                {
+                    Title = "Small Great Things: A Novel",
                     Isbn = "Isbn21",
                     Synopsis = "Synopsis21",
                     Description = "Description21",
-                    ImageUrl = "ImageUrl21",
+                    ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/51MzOneN8rL._SX325_BO1,204,203,200_.jpg",
                     ListPrice = 2.1M,
                     SalePrice = 2.21M,
                     Featured = false,
@@ -79,13 +79,13 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL
                 },
                 new Book
                 {
-                    Title = "Title22",
+                    Title = "Born to Run",
                     Isbn = "Isbn22",
                     Synopsis = "Synopsis22",
                     Description = "Description22",
-                    ImageUrl = "ImageUrl22",
-                    ListPrice = 2.2M,
-                    SalePrice = 2.22M,
+                    ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/51hnB7FEgcL._SX327_BO1,204,203,200_.jpg",
+                    ListPrice = 20M,
+                    SalePrice = 17.99M,
                     Featured = true,
                     Author = authors[1],
                     Category = categories[2]

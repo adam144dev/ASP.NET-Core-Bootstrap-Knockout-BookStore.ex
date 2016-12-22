@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
@@ -125,9 +127,10 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartItem_CartId",
+                name: "IX_CartItem_CartId_BookId",
                 table: "CartItem",
-                column: "CartId");
+                columns: new[] { "CartId", "BookId" },
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

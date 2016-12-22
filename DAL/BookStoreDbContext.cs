@@ -21,6 +21,10 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.RemovePluralizingTableNameConvention();
+            modelBuilder.Entity<CartItem>()
+                .HasIndex(ci => new { ci.CartId, ci.BookId })
+                .IsUnique();
+
             base.OnModelCreating(modelBuilder);
         }
     }

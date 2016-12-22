@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.DAL;
 
 namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
@@ -92,7 +94,8 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("CartId");
+                    b.HasIndex("CartId", "BookId")
+                        .IsUnique();
 
                     b.ToTable("CartItem");
                 });
