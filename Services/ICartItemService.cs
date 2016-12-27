@@ -6,8 +6,6 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
     {
         CartItem AddToCart(CartItem cartItem);
 
-        void UpdateCartItem(CartItem cartItem);
-
         void DeleteCartItem(CartItem cartItem);
     }
 }

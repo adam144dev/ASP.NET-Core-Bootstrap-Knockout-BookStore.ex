@@ -26,15 +26,16 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Controllers.Api
             return Ok(newCartItem);
         }
 
+        //[Produces("application/json")]
         [HttpPut]
         public IActionResult Put([FromBody]CartItemViewModel cartItem)
         {
             if (cartItem == null)
                 return BadRequest();
 
-            _service.UpdateCartItem(AutoMapper.Mapper.Map<CartItemViewModel, CartItem>(cartItem));
-
-            return new OkResult();
+            var updatedCartItem = _service.AddToCart(AutoMapper.Mapper.Map<CartItemViewModel, CartItem>(cartItem));
+            
+            return Ok(updatedCartItem);
         }
 
         // DELETE api/values

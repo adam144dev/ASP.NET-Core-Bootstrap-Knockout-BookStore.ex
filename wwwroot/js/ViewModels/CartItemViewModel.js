@@ -34,10 +34,14 @@
             self.cartItem.id = data.id;
             msg += 'added to';
         }
-        else
+        else 
             msg += 'updated in';
+
+        var cartItem = JSON.parse(JSON.stringify(self.cartItem));
+        cartItem.quantity = data.quantity;
+
         $('.body-content').prepend(msg + ' your cart.</div>');
-        cartSummaryViewModel.updateCartItem(ko.toJS(self.cartItem));
+        cartSummaryViewModel.updateCartItem(ko.toJS(cartItem));
     };
 
     self.errorSave = function () {

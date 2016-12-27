@@ -31,8 +31,6 @@ namespace ASP.NET_Core_Bootstrap_Knockout_BookStore.ex.Services
             return entityCartItem;
         }
 
-        public void UpdateCartItem(CartItem cartItem) => _repository.Update(cartItem);
-
         public void DeleteCartItem(CartItem cartItem) => _repository.Delete(cartItem);
     }
 }
